@@ -1,0 +1,132 @@
+package map;
+
+public class SimpleHashMap<K, V> implements Map<K, V> {
+
+	private Entry<K,V>[] vector;
+	public int size;
+	
+	/** Constructs an empty hashmap with the default initial capacity (16)
+	and the default load factor (0.75). */
+	public SimpleHashMap(){
+		vector = (Entry<K,V>[]) new Entry[16];
+	}
+	
+	/** Constructs an empty hashmap with the specified initial capacity
+	and the default load factor (0.75). */
+	public SimpleHashMap(int capacity){
+		vector = (Entry<K,V>[]) new Entry[capacity];
+	}
+
+	public String show(){
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i < vector.length; i++){
+			while(vector[i] != null){
+				sb.append(vector[i]);
+				sb.append(" ");
+				vector[i] = vector[i].next;
+			}
+			sb.append("\n");
+		}
+		
+		return sb.toString();
+		
+	}
+	
+	private int index(K key){
+		int index = -1;
+		
+		for(int i=0; i<vector.length; i++){
+			while(vector[i] != null){
+				if(vector[i].key.equals(key)){
+					index++;
+					return index; 
+				}
+				index++;
+			}
+		}
+		
+		return index;
+	}
+	
+	private Entry<K,V> find(int index, K key){
+		
+	}
+	
+	
+	
+	@Override
+	public V get(Object arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return size()==0;
+	}
+
+	@Override
+	public V put(K arg0, V arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public V remove(Object arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int size() {
+		int size = 0;
+		for(int i =0; i<vector.length;i++){
+			while(vector[i] != null){
+				size++;
+				vector[i] = vector[i].next;	
+			}
+		}
+		
+		return size;
+	}
+
+	public static class Entry<K, V> implements Map.Entry<K, V> {
+
+		private K key;
+		private V value;
+		private Entry<K, V> next;
+
+		public Entry() {
+		}
+
+		@Override
+		public K getKey() {
+			return key;
+		}
+
+		@Override
+		public V getValue() {
+
+			return value;
+		}
+
+		
+		/*
+		 Returns old value
+		 */
+		@Override
+		public V setValue(V value) {
+			V oldValue = this.value;
+			this.value = value;
+			return oldValue;
+		}
+
+		@Override
+		public String toString() {
+			
+			return key.toString() +" = "+ value;
+		}
+
+	}
+
+}

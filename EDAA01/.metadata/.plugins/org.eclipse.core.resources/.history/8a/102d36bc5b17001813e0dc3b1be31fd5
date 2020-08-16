@@ -1,0 +1,12 @@
+import javax.swing.JTextField;
+
+public class OneLetter extends JTextField {
+
+	public OneLetter(){
+		super("");
+		setDocument(new SingleNumberField());
+	}
+	
+	
+	
+}

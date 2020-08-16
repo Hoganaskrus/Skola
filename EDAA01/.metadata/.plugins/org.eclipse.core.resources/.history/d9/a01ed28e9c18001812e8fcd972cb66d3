@@ -1,0 +1,102 @@
+package map;
+
+public class SimpleHashMap<K, V> implements Map<K, V> {
+
+	private Entry<K,V>[] vector;
+	
+	
+	/** Constructs an empty hashmap with the default initial capacity (16)
+	and the default load factor (0.75). */
+	public SimpleHashMap(){
+		vector = (Entry<K,V>[]) new Entry[16];
+	}
+	
+	/** Constructs an empty hashmap with the specified initial capacity
+	and the default load factor (0.75). */
+	public SimpleHashMap(int capacity){
+		vector = (Entry<K,V>[]) new Entry[capacity];
+	}
+
+	public String show(){
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i < vector.length; i++){
+			while(vector[i].next != null){
+				sb.append(vector[i]);
+				vector[i] = vector[i].next;
+			}
+			
+			
+			
+		}
+		
+		return null;
+		
+	}
+	
+	
+	
+	@Override
+	public V get(Object arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public V put(K arg0, V arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public V remove(Object arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static class Entry<K, V> implements Map.Entry<K, V> {
+
+		private K key;
+		private V value;
+		public Entry<K, V> next;
+
+		public Entry() {
+		}
+
+		@Override
+		public K getKey() {
+			return key;
+		}
+
+		@Override
+		public V getValue() {
+
+			return value;
+		}
+
+		@Override
+		public V setValue(V value) {
+			this.value = value;
+			return value;
+		}
+
+		@Override
+		public String toString() {
+			
+			return key.toString() +" = "+ value;
+		}
+
+	}
+
+}

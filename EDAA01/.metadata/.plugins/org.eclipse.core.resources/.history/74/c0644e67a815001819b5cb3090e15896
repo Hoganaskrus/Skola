@@ -1,0 +1,5 @@
+import javax.swing.JTextField;
+
+public class OneLetter extends JTextField {
+
+}

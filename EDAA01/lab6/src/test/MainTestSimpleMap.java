@@ -1,0 +1,28 @@
+package test;
+
+import java.util.Random;
+
+import map.SimpleHashMap;
+
+public class MainTestSimpleMap {
+
+	public static void main(String[] args) {
+		//Lyckades inte med Math.random.
+		Random random = new Random();
+		SimpleHashMap<Integer, Integer> map = new SimpleHashMap<Integer, Integer>(10);
+		System.out.println(map.show());
+		System.out.println(map.size());
+		System.out.println(map.isEmpty());
+		for (int i = 0; i < 10; i++) {
+			Integer temp = random.nextInt();
+			map.put(temp, temp);
+		}
+
+		System.out.println(map.show());
+		System.out.println(map.size());
+		System.out.println(map.isEmpty());
+		System.out.println();
+
+	}
+
+}

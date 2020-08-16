@@ -1,0 +1,5 @@
+import javax.swing.text.PlainDocument;
+
+public class SingleNumberField extends PlainDocument {
+
+}
